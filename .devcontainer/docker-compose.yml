@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  oracle-db:
+    image: gvenzl/oracle-xe:21.3.0-slim
+    container_name: oracle-db
+    ports:
+      - "1521:1521"
+    environment:
+      ORACLE_PASSWORD: MyPassword123
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+    shm_size: "1g"
+
+volumes:
+  oracle-data:
